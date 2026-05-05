@@ -12,6 +12,7 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <div class="logo">
@@ -30,6 +31,7 @@
       </nav>
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     </div>
+    <!-- Mobile nav -->
     <nav class="mobile-nav" id="mobileNav">
       <a href="#home" onclick="closeMobileNav()">Home</a>
       <a href="#shop" onclick="closeMobileNav()">Shop</a>
@@ -39,6 +41,7 @@
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-texture"></div>
     <div class="hero-content">
@@ -59,11 +62,12 @@
     </div>
   </section>
 
+  <!-- SHOP -->
   <section class="shop" id="shop">
     <div class="section-inner">
       <p class="section-label">Find our work</p>
       <h2 class="section-title">Shop Our Creations</h2>
-      <p class="section-sub">Browse our handmade crochet pieces and original paintings — available on Etsy and Shopify.</p>
+      <p class="section-sub">Browse our handmade goods on Etsy or follow our homestead life on Facebook.</p>
       <div class="shop-cards">
         <a href="https://www.etsy.com/shop/DuniganDesignz" target="_blank" rel="noopener" class="shop-card">
           <div class="shop-card-icon">🧶</div>
@@ -71,20 +75,21 @@
           <p>Crochet goods, fiber arts, and handmade accessories</p>
           <span class="shop-card-cta">Visit Etsy →</span>
         </a>
-        <a href="" target="_blank" rel="noopener" class="shop-card">
-          <div class="shop-card-icon">🎨</div>
-          <h3>Shopify Store</h3>
-          <p>Original paintings, prints, and homestead goods</p>
-          <span class="shop-card-cta">Visit Store →</span>
+        <a href="https://www.facebook.com/share/18uFwBhyeV/?mibextid=wwXIfr" target="_blank" rel="noopener" class="shop-card">
+          <div class="shop-card-icon">🌿</div>
+          <h3>Homestead Journal</h3>
+          <p>Follow along on Facebook for updates, blog posts, and life on the homestead</p>
+          <span class="shop-card-cta">Follow Along →</span>
         </a>
       </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section class="about" id="about">
     <div class="section-inner about-inner">
       <div class="about-image-placeholder">
-        <span>Family Photo</span>
+        <img src="images/img1.jpg" alt="Our dogs playing in the creek on the homestead" loading="lazy">
       </div>
       <div class="about-text">
         <p class="section-label">Our story</p>
@@ -96,6 +101,7 @@
     </div>
   </section>
 
+  <!-- GALLERY -->
   <section class="gallery" id="gallery">
     <div class="section-inner">
       <p class="section-label">Our work</p>
@@ -103,27 +109,28 @@
       <p class="section-sub">A glimpse into what we make and how we live.</p>
       <div class="gallery-grid">
         <div class="gallery-item tall">
-          <img src="images/img1.jpg" alt="Handmade crochet work" loading="lazy">
+          <img src="images/img1.jpg" alt="Our dogs playing in the creek on the homestead" loading="lazy">
         </div>
         <div class="gallery-item">
-          <img src="images/img2.jpg" alt="Original painting" loading="lazy">
+          <img src="images/img2.jpg" alt="Hosta plant growing in the homestead garden" loading="lazy">
         </div>
         <div class="gallery-item">
-          <img src="images/img3.jpg" alt="Homestead life" loading="lazy">
+          <img src="images/img3.jpg" alt="Original painting — floral ribcage with roses, sunflowers and a raven" loading="lazy">
         </div>
         <div class="gallery-item wide">
-          <img src="images/img4.jpg" alt="The Dunigan homestead" loading="lazy">
+          <img src="images/img4.jpg" alt="Handmade multicolor crochet slouch hat" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="section-inner contact-inner">
       <p class="section-label">Get in touch</p>
       <h2 class="section-title">We'd Love to Hear From You</h2>
       <p>Questions about an order, custom requests, or just want to say hello — reach out anytime.</p>
-      <a href="KBDbusiness98@gmail.com" class="btn btn-primary">your@email.com</a>
+      <a href="mailto:KBDbusiness98@gmail.com" class="btn btn-primary">KBDbusiness98@gmail.com</a>
       <div class="social-links">
         <a href="#" aria-label="Instagram">Instagram</a>
         <a href="#" aria-label="Facebook">Facebook</a>
@@ -132,15 +139,19 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-logo">✦ The Dunigan Patch</div>
+      <div class="footer-logo">
+        <span>✦</span> The Dunigan Patch
+      </div>
       <p>Handmade. Homegrown. Heartfelt.</p>
       <p class="footer-copy">© 2026 The Dunigan Patch. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
+    // Mobile nav toggle
     const toggle = document.querySelector('.nav-toggle');
     const mobileNav = document.getElementById('mobileNav');
     toggle.addEventListener('click', () => {
@@ -149,6 +160,8 @@
     function closeMobileNav() {
       mobileNav.classList.remove('open');
     }
+
+    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) e.target.classList.add('visible');
