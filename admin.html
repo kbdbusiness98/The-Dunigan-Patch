@@ -135,6 +135,14 @@
 
     .empty-state { text-align: center; color: var(--text-muted); padding: 32px 0; font-size: 0.9rem; }
 
+    /* Speed control */
+    .speed-row { display: flex; align-items: center; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
+    .speed-row input[type="range"] { flex: 1; min-width: 180px; accent-color: var(--sage); }
+    .speed-label { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+    .speed-val { font-size: 1rem; font-weight: 500; color: var(--sage-dark); min-width: 42px; }
+    .speed-saved { font-size: 0.82rem; color: var(--sage); margin-left: 14px; opacity: 0; transition: opacity 0.3s; }
+    .speed-saved.show { opacity: 1; }
+
     @media (max-width: 600px) {
       .url-row { flex-wrap: wrap; }
       .url-row input.caption-input { max-width: 100%; }
@@ -166,10 +174,24 @@
 
     <div class="admin-body">
 
+      <!-- Slideshow speed -->
+      <div class="admin-section">
+        <h2>Slideshow Speed</h2>
+        <p class="hint">Control how long each image displays before fading to the next. 5 random images are picked from your pool each time someone visits the gallery.</p>
+        <div class="speed-row">
+          <span class="speed-label">Slow</span>
+          <input type="range" id="speedSlider" min="1500" max="10000" step="500" value="4000" oninput="updateSpeedDisplay(this.value)">
+          <span class="speed-label">Fast</span>
+          <span class="speed-val" id="speedVal">4.0s</span>
+        </div>
+        <button class="btn-add" style="margin-top:16px;" onclick="saveSpeed()">Save Speed</button>
+        <span class="speed-saved" id="speedSaved"></span>
+      </div>
+
       <!-- Upload photos -->
       <div class="admin-section">
-        <h2>Upload Photos</h2>
-        <p class="hint">Drag and drop images onto the zone below, or click to browse your files. JPG, PNG, WEBP supported.</p>
+        <h2>Upload Photos to Pool</h2>
+        <p class="hint">Add images to the slideshow pool (up to 50). The gallery will randomly pick 5 each time a visitor loads the page. JPG, PNG, WEBP supported.</p>
         <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
           <div class="icon">🌿</div>
           <p><strong>Click to browse</strong> or drag photos here</p>
@@ -193,10 +215,10 @@
         </div>
       </div>
 
-      <!-- Current gallery -->
+      <!-- Current pool -->
       <div class="admin-section">
-        <h2>Current Gallery</h2>
-        <p class="hint">Hover over a photo and click the ✕ to remove it. Changes save automatically.</p>
+        <h2>Slideshow Pool</h2>
+        <p class="hint">All images available for the slideshow. Hover a photo and click ✕ to remove it. The gallery picks 5 randomly from this pool each page load.</p>
         <div class="admin-grid" id="adminGrid"></div>
       </div>
 
@@ -240,6 +262,7 @@
       document.getElementById('loginScreen').style.display = 'none';
       document.getElementById('adminScreen').style.display = 'block';
       renderGrid();
+      loadSpeed();
     }
 
     if (sessionStorage.getItem('dp_admin') === '1') showAdmin();
@@ -353,6 +376,24 @@
       clearTimeout(toastTimer);
       toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
     }
+    // ── Speed control ─────────────────────────────────────
+    function updateSpeedDisplay(val) {
+      document.getElementById('speedVal').textContent = (val / 1000).toFixed(1) + 's';
+    }
+    function saveSpeed() {
+      const val = document.getElementById('speedSlider').value;
+      localStorage.setItem('dunigan_slide_speed', val);
+      const saved = document.getElementById('speedSaved');
+      saved.textContent = '✓ Saved!';
+      saved.classList.add('show');
+      setTimeout(() => saved.classList.remove('show'), 2000);
+    }
+    function loadSpeed() {
+      const val = parseInt(localStorage.getItem('dunigan_slide_speed') || '4000', 10);
+      document.getElementById('speedSlider').value = val;
+      updateSpeedDisplay(val);
+    }
+
   </script>
 </body>
 </html>
