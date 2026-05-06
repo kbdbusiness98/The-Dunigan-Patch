@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Dunigan Patch — Handmade. Homegrown. Heartfelt.</title>
-  <meta name="description" content="Handcrafted crochet, paintings, and homestead living from the Dunigan family. Shop our handmade goods on Etsy and Shopify.">
+  <meta name="description" content="Handcrafted crochet, paintings, and homestead living from the Dunigan family. Shop our handmade goods on Etsy.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -14,7 +13,6 @@
 <body>
 
   <!-- HEADER -->
-
   <header class="site-header">
     <div class="header-inner">
       <div class="logo">
@@ -33,7 +31,6 @@
       </nav>
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     </div>
-    <!-- Mobile nav -->
     <nav class="mobile-nav" id="mobileNav">
       <a href="#home" onclick="closeMobileNav()">Home</a>
       <a href="#shop" onclick="closeMobileNav()">Shop</a>
@@ -43,10 +40,95 @@
     </nav>
   </header>
 
-  <!-- HERO -->
-
+  <!-- ===================== HERO ===================== -->
   <section class="hero" id="home">
     <div class="hero-texture"></div>
+
+    <svg class="botanical-hero" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="lf1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#7da05a"/><stop offset="60%" stop-color="#5a7c3e"/><stop offset="100%" stop-color="#3d5c28"/></radialGradient>
+        <radialGradient id="lf2" cx="40%" cy="25%" r="60%"><stop offset="0%" stop-color="#8db568"/><stop offset="55%" stop-color="#6a9448"/><stop offset="100%" stop-color="#4a6e30"/></radialGradient>
+        <radialGradient id="lf3" cx="30%" cy="35%" r="70%"><stop offset="0%" stop-color="#6a8c4e"/><stop offset="50%" stop-color="#506c38"/><stop offset="100%" stop-color="#344d22"/></radialGradient>
+        <radialGradient id="lf4" cx="45%" cy="20%" r="65%"><stop offset="0%" stop-color="#9abf70"/><stop offset="60%" stop-color="#729952"/><stop offset="100%" stop-color="#4e6e35"/></radialGradient>
+        <radialGradient id="br1" cx="40%" cy="35%" r="60%"><stop offset="0%" stop-color="#c4504a"/><stop offset="100%" stop-color="#8a2a28"/></radialGradient>
+        <radialGradient id="br2" cx="40%" cy="35%" r="60%"><stop offset="0%" stop-color="#7a4a8a"/><stop offset="100%" stop-color="#4a2060"/></radialGradient>
+        <radialGradient id="fl1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f5e6c0"/><stop offset="100%" stop-color="#d4b870"/></radialGradient>
+      </defs>
+
+      <!-- ── LEFT MAIN STEMS ── -->
+      <path d="M30,700 C38,650 18,610 45,565 C72,520 50,478 72,432 C90,392 68,350 90,305 C108,268 85,228 108,188 C126,156 105,118 128,82 C144,56 165,28 180,0" fill="none" stroke="#4a6030" stroke-width="5" stroke-linecap="round"/>
+      <path d="M0,680 C12,640 30,618 20,578 C10,538 35,510 25,470 C15,432 42,400 32,360 C22,322 50,290 40,250 C30,212 58,178 50,138 C42,100 68,65 78,28" fill="none" stroke="#5a7040" stroke-width="3" stroke-linecap="round"/>
+      <!-- tendrils -->
+      <path d="M58,520 C80,512 92,528 84,548 C76,566 92,576 104,566" fill="none" stroke="#6a8448" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M72,390 C94,380 108,395 100,415 C92,433 108,442 120,430" fill="none" stroke="#6a8448" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M95,260 C118,250 132,264 124,284 C116,302 132,310 144,300" fill="none" stroke="#6a8448" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- LEFT LEAVES -->
+      <g transform="translate(68,555) rotate(-32)"><path d="M0,0 C-10,-22 -28,-42 -20,-62 C-12,-80 6,-76 14,-58 C24,-38 18,-16 0,0Z" fill="url(#lf1)"/><path d="M0,0 C-3,-20 -6,-40 -8,-60" fill="none" stroke="#3d5228" stroke-width="1" opacity="0.7"/><path d="M-2,-15 C-10,-20 -18,-22 -22,-18" fill="none" stroke="#3d5228" stroke-width="0.6" opacity="0.5"/><path d="M-4,-28 C-13,-34 -20,-33 -22,-28" fill="none" stroke="#3d5228" stroke-width="0.6" opacity="0.5"/><path d="M-6,-42 C-14,-46 -20,-44 -20,-40" fill="none" stroke="#3d5228" stroke-width="0.5" opacity="0.4"/></g>
+      <g transform="translate(88,470) rotate(45)"><path d="M0,0 C8,-18 24,-32 18,-50 C12,-66 -4,-64 -12,-48 C-20,-30 -12,-14 0,0Z" fill="url(#lf2)"/><path d="M0,0 C3,-18 5,-34 5,-48" fill="none" stroke="#3d5228" stroke-width="1" opacity="0.7"/><path d="M3,-15 C10,-20 16,-20 18,-16" fill="none" stroke="#3d5228" stroke-width="0.6" opacity="0.5"/></g>
+      <g transform="translate(104,368) rotate(-18)"><path d="M0,0 C-12,-26 -32,-48 -24,-70 C-16,-90 4,-88 14,-68 C26,-46 20,-22 0,0Z" fill="url(#lf3)"/><path d="M0,0 C-3,-23 -7,-46 -10,-68" fill="none" stroke="#344d22" stroke-width="1" opacity="0.7"/><path d="M-3,-18 C-11,-25 -20,-27 -24,-22" fill="none" stroke="#344d22" stroke-width="0.6" opacity="0.5"/><path d="M-5,-34 C-14,-41 -22,-40 -24,-35" fill="none" stroke="#344d22" stroke-width="0.6" opacity="0.5"/><path d="M-7,-50 C-15,-56 -22,-53 -22,-48" fill="none" stroke="#344d22" stroke-width="0.5" opacity="0.4"/></g>
+      <g transform="translate(62,435) rotate(68)"><path d="M0,0 C6,-14 18,-24 14,-38 C10,-50 -2,-48 -8,-36 C-14,-22 -8,-10 0,0Z" fill="url(#lf4)"/><path d="M0,0 C2,-13 3,-25 3,-36" fill="none" stroke="#3d5228" stroke-width="0.8" opacity="0.6"/></g>
+      <g transform="translate(120,248) rotate(-42)"><path d="M0,0 C-9,-20 -24,-36 -18,-54 C-12,-70 4,-68 12,-52 C20,-34 14,-16 0,0Z" fill="url(#lf2)"/><path d="M0,0 C-2,-18 -5,-36 -7,-52" fill="none" stroke="#3d5228" stroke-width="0.9" opacity="0.65"/><path d="M-2,-15 C-8,-21 -15,-22 -18,-18" fill="none" stroke="#3d5228" stroke-width="0.5" opacity="0.5"/></g>
+      <g transform="translate(145,145) rotate(20)"><path d="M0,0 C8,-16 22,-28 16,-44 C10,-58 -4,-56 -10,-42 C-18,-26 -10,-12 0,0Z" fill="url(#lf1)"/><path d="M0,0 C2,-15 4,-29 4,-42" fill="none" stroke="#3d5228" stroke-width="0.8" opacity="0.65"/></g>
+      <g transform="translate(50,638) rotate(15)"><path d="M0,0 C6,-14 16,-24 12,-36 C8,-46 -2,-46 -6,-34 C-12,-22 -6,-10 0,0Z" fill="url(#lf1)"/></g>
+      <!-- LEFT FLOWERS -->
+      <g transform="translate(52,315)"><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f0d898" opacity="0.92"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#efd080" opacity="0.88" transform="rotate(45)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f5e6c0" opacity="0.88" transform="rotate(90)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f0d898" opacity="0.92" transform="rotate(135)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f5e6c0" opacity="0.88" transform="rotate(180)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f0d898" opacity="0.9" transform="rotate(225)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f5e6c0" opacity="0.88" transform="rotate(270)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f0d898" opacity="0.9" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="url(#fl1)"/><circle cx="0" cy="0" r="2" fill="#c8962a"/></g>
+      <g transform="translate(160,175) scale(0.72)"><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(60)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(120)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(240)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(300)"/><circle cx="0" cy="0" r="4" fill="url(#fl1)"/><circle cx="0" cy="0" r="1.8" fill="#c8962a"/></g>
+      <!-- LEFT BERRIES -->
+      <line x1="84" y1="488" x2="78" y2="498" stroke="#4a6030" stroke-width="1.1"/><line x1="84" y1="488" x2="90" y2="504" stroke="#4a6030" stroke-width="1.1"/><line x1="84" y1="488" x2="70" y2="508" stroke="#4a6030" stroke-width="1.1"/>
+      <circle cx="78" cy="498" r="5.5" fill="url(#br1)"/><circle cx="78" cy="498" r="1.6" fill="rgba(255,255,255,0.3)"/>
+      <circle cx="90" cy="504" r="4.5" fill="url(#br1)"/><circle cx="90" cy="504" r="1.3" fill="rgba(255,255,255,0.3)"/>
+      <circle cx="70" cy="508" r="4" fill="#a03830"/>
+      <line x1="115" y1="147" x2="110" y2="155" stroke="#4a6030" stroke-width="1"/><line x1="115" y1="147" x2="122" y2="148" stroke="#4a6030" stroke-width="1"/><line x1="115" y1="147" x2="118" y2="162" stroke="#4a6030" stroke-width="1"/>
+      <circle cx="110" cy="155" r="4" fill="url(#br2)"/><circle cx="110" cy="155" r="1.2" fill="rgba(255,255,255,0.28)"/>
+      <circle cx="122" cy="148" r="3.2" fill="url(#br2)"/><circle cx="118" cy="162" r="3.5" fill="#5a2870"/>
+
+      <!-- ── RIGHT MAIN STEMS ── -->
+      <path d="M1170,700 C1162,650 1182,610 1155,565 C1128,520 1150,478 1128,432 C1110,392 1132,350 1110,305 C1092,268 1115,228 1092,188 C1074,156 1095,118 1072,82 C1056,56 1035,28 1020,0" fill="none" stroke="#4a6030" stroke-width="5" stroke-linecap="round"/>
+      <path d="M1200,680 C1188,640 1170,618 1180,578 C1190,538 1165,510 1175,470 C1185,432 1158,400 1168,360 C1178,322 1150,290 1160,250 C1170,212 1142,178 1150,138 C1158,100 1132,65 1122,28" fill="none" stroke="#5a7040" stroke-width="3" stroke-linecap="round"/>
+      <path d="M1142,520 C1120,512 1108,528 1116,548 C1124,566 1108,576 1096,566" fill="none" stroke="#6a8448" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M1128,390 C1106,380 1092,395 1100,415 C1108,433 1092,442 1080,430" fill="none" stroke="#6a8448" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M1105,260 C1082,250 1068,264 1076,284 C1084,302 1068,310 1056,300" fill="none" stroke="#6a8448" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- RIGHT LEAVES -->
+      <g transform="translate(1132,555) rotate(32)"><path d="M0,0 C10,-22 28,-42 20,-62 C12,-80 -6,-76 -14,-58 C-24,-38 -18,-16 0,0Z" fill="url(#lf1)"/><path d="M0,0 C3,-20 6,-40 8,-60" fill="none" stroke="#3d5228" stroke-width="1" opacity="0.7"/><path d="M2,-15 C10,-20 18,-22 22,-18" fill="none" stroke="#3d5228" stroke-width="0.6" opacity="0.5"/><path d="M4,-28 C13,-34 20,-33 22,-28" fill="none" stroke="#3d5228" stroke-width="0.6" opacity="0.5"/><path d="M6,-42 C14,-46 20,-44 20,-40" fill="none" stroke="#3d5228" stroke-width="0.5" opacity="0.4"/></g>
+      <g transform="translate(1112,470) rotate(-45)"><path d="M0,0 C-8,-18 -24,-32 -18,-50 C-12,-66 4,-64 12,-48 C20,-30 12,-14 0,0Z" fill="url(#lf2)"/><path d="M0,0 C-3,-18 -5,-34 -5,-48" fill="none" stroke="#3d5228" stroke-width="1" opacity="0.7"/><path d="M-3,-15 C-10,-20 -16,-20 -18,-16" fill="none" stroke="#3d5228" stroke-width="0.6" opacity="0.5"/></g>
+      <g transform="translate(1096,368) rotate(18)"><path d="M0,0 C12,-26 32,-48 24,-70 C16,-90 -4,-88 -14,-68 C-26,-46 -20,-22 0,0Z" fill="url(#lf3)"/><path d="M0,0 C3,-23 7,-46 10,-68" fill="none" stroke="#344d22" stroke-width="1" opacity="0.7"/><path d="M3,-18 C11,-25 20,-27 24,-22" fill="none" stroke="#344d22" stroke-width="0.6" opacity="0.5"/><path d="M5,-34 C14,-41 22,-40 24,-35" fill="none" stroke="#344d22" stroke-width="0.6" opacity="0.5"/></g>
+      <g transform="translate(1138,435) rotate(-68)"><path d="M0,0 C-6,-14 -18,-24 -14,-38 C-10,-50 2,-48 8,-36 C14,-22 8,-10 0,0Z" fill="url(#lf4)"/><path d="M0,0 C-2,-13 -3,-25 -3,-36" fill="none" stroke="#3d5228" stroke-width="0.8" opacity="0.6"/></g>
+      <g transform="translate(1080,248) rotate(42)"><path d="M0,0 C9,-20 24,-36 18,-54 C12,-70 -4,-68 -12,-52 C-20,-34 -14,-16 0,0Z" fill="url(#lf2)"/><path d="M0,0 C2,-18 5,-36 7,-52" fill="none" stroke="#3d5228" stroke-width="0.9" opacity="0.65"/><path d="M2,-15 C8,-21 15,-22 18,-18" fill="none" stroke="#3d5228" stroke-width="0.5" opacity="0.5"/></g>
+      <g transform="translate(1055,145) rotate(-20)"><path d="M0,0 C-8,-16 -22,-28 -16,-44 C-10,-58 4,-56 10,-42 C18,-26 10,-12 0,0Z" fill="url(#lf1)"/><path d="M0,0 C-2,-15 -4,-29 -4,-42" fill="none" stroke="#3d5228" stroke-width="0.8" opacity="0.65"/></g>
+      <g transform="translate(1150,638) rotate(-15)"><path d="M0,0 C-6,-14 -16,-24 -12,-36 C-8,-46 2,-46 6,-34 C12,-22 6,-10 0,0Z" fill="url(#lf1)"/></g>
+      <!-- RIGHT FLOWERS -->
+      <g transform="translate(1148,315)"><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f0d898" opacity="0.92"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#efd080" opacity="0.88" transform="rotate(45)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f5e6c0" opacity="0.88" transform="rotate(90)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f0d898" opacity="0.92" transform="rotate(135)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f5e6c0" opacity="0.88" transform="rotate(180)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f0d898" opacity="0.9" transform="rotate(225)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f5e6c0" opacity="0.88" transform="rotate(270)"/><ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f0d898" opacity="0.9" transform="rotate(315)"/><circle cx="0" cy="0" r="5" fill="url(#fl1)"/><circle cx="0" cy="0" r="2" fill="#c8962a"/></g>
+      <g transform="translate(1040,175) scale(0.72)"><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(60)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(120)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(240)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(300)"/><circle cx="0" cy="0" r="4" fill="url(#fl1)"/><circle cx="0" cy="0" r="1.8" fill="#c8962a"/></g>
+      <!-- RIGHT BERRIES -->
+      <line x1="1116" y1="488" x2="1122" y2="498" stroke="#4a6030" stroke-width="1.1"/><line x1="1116" y1="488" x2="1110" y2="504" stroke="#4a6030" stroke-width="1.1"/><line x1="1116" y1="488" x2="1130" y2="508" stroke="#4a6030" stroke-width="1.1"/>
+      <circle cx="1122" cy="498" r="5.5" fill="url(#br1)"/><circle cx="1122" cy="498" r="1.6" fill="rgba(255,255,255,0.3)"/>
+      <circle cx="1110" cy="504" r="4.5" fill="url(#br1)"/><circle cx="1110" cy="504" r="1.3" fill="rgba(255,255,255,0.3)"/>
+      <circle cx="1130" cy="508" r="4" fill="#a03830"/>
+      <line x1="1085" y1="147" x2="1090" y2="155" stroke="#4a6030" stroke-width="1"/><line x1="1085" y1="147" x2="1078" y2="148" stroke="#4a6030" stroke-width="1"/><line x1="1085" y1="147" x2="1082" y2="162" stroke="#4a6030" stroke-width="1"/>
+      <circle cx="1090" cy="155" r="4" fill="url(#br2)"/><circle cx="1090" cy="155" r="1.2" fill="rgba(255,255,255,0.28)"/>
+      <circle cx="1078" cy="148" r="3.2" fill="url(#br2)"/><circle cx="1082" cy="162" r="3.5" fill="#5a2870"/>
+
+      <!-- ── TOP ARCH VINE ── -->
+      <path d="M180,0 C220,32 265,18 308,38 C350,57 390,32 432,48 C474,63 514,38 556,52 C598,66 638,40 680,53 C722,66 762,40 804,50 C846,60 886,36 928,48 C970,60 1010,35 1052,0" fill="none" stroke="#4a6030" stroke-width="2.5" stroke-linecap="round"/>
+      <g transform="translate(308,38) rotate(-18)"><path d="M0,0 C-4,-11 -12,-19 -9,-29 C-6,-38 2,-36 6,-26 C10,-15 6,-7 0,0Z" fill="url(#lf2)" opacity="0.85"/></g>
+      <g transform="translate(432,48) rotate(14)"><path d="M0,0 C4,-11 12,-19 9,-29 C6,-38 -2,-36 -6,-26 C-10,-15 -6,-7 0,0Z" fill="url(#lf3)" opacity="0.85"/></g>
+      <g transform="translate(556,52) rotate(-10)"><path d="M0,0 C-4,-11 -12,-19 -9,-29 C-6,-38 2,-36 6,-26 C10,-15 6,-7 0,0Z" fill="url(#lf1)" opacity="0.85"/></g>
+      <g transform="translate(680,53) rotate(16)"><path d="M0,0 C4,-11 12,-19 9,-29 C6,-38 -2,-36 -6,-26 C-10,-15 -6,-7 0,0Z" fill="url(#lf4)" opacity="0.85"/></g>
+      <g transform="translate(804,50) rotate(-12)"><path d="M0,0 C-4,-11 -12,-19 -9,-29 C-6,-38 2,-36 6,-26 C10,-15 6,-7 0,0Z" fill="url(#lf2)" opacity="0.85"/></g>
+      <g transform="translate(928,48) rotate(10)"><path d="M0,0 C4,-11 12,-19 9,-29 C6,-38 -2,-36 -6,-26 C-10,-15 -6,-7 0,0Z" fill="url(#lf3)" opacity="0.85"/></g>
+      <!-- flower on top arch -->
+      <g transform="translate(494,46) scale(0.62)"><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(72)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(144)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(216)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(288)"/><circle cx="0" cy="0" r="4" fill="url(#fl1)"/><circle cx="0" cy="0" r="1.8" fill="#c8962a"/></g>
+      <g transform="translate(770,48) scale(0.62)"><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(72)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(144)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(216)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(288)"/><circle cx="0" cy="0" r="4" fill="url(#fl1)"/><circle cx="0" cy="0" r="1.8" fill="#c8962a"/></g>
+
+      <!-- ── BOTTOM BORDER VINE ── -->
+      <path d="M0,676 C30,668 52,682 82,675 C112,668 134,683 164,676 C192,669 214,683 244,676" fill="none" stroke="#4a6030" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M956,676 C986,668 1008,683 1038,676 C1068,669 1090,683 1120,676 C1148,669 1170,682 1200,676" fill="none" stroke="#4a6030" stroke-width="2.5" stroke-linecap="round"/>
+      <g transform="translate(88,673) rotate(-9)"><path d="M0,0 C-4,-12 -12,-20 -9,-30 C-6,-39 2,-37 6,-27 C10,-16 6,-7 0,0Z" fill="url(#lf2)"/></g>
+      <g transform="translate(168,673) rotate(11)"><path d="M0,0 C4,-12 12,-20 9,-30 C6,-39 -2,-37 -6,-27 C-10,-16 -6,-7 0,0Z" fill="url(#lf1)"/></g>
+      <g transform="translate(1044,673) rotate(-11)"><path d="M0,0 C-4,-12 -12,-20 -9,-30 C-6,-39 2,-37 6,-27 C10,-16 6,-7 0,0Z" fill="url(#lf2)"/></g>
+      <g transform="translate(1124,673) rotate(9)"><path d="M0,0 C4,-12 12,-20 9,-30 C6,-39 -2,-37 -6,-27 C-10,-16 -6,-7 0,0Z" fill="url(#lf1)"/></g>
+    </svg>
+
     <div class="hero-content">
       <p class="hero-eyebrow">Welcome to our homestead</p>
       <h2 class="hero-headline">Crafted with care,<br><em>rooted in nature.</em></h2>
@@ -57,17 +139,50 @@
       </div>
     </div>
     <div class="hero-badge">
-      <span>Handmade</span>
-      <span>·</span>
-      <span>Small Batch</span>
-      <span>·</span>
-      <span>Family Made</span>
+      <span>Handmade</span><span>·</span><span>Small Batch</span><span>·</span><span>Family Made</span>
     </div>
   </section>
 
-  <!-- SHOP -->
-
+  <!-- ===================== SHOP ===================== -->
   <section class="shop" id="shop">
+    <!-- corner vine TL -->
+    <svg class="bot-corner bot-tl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="s_lf1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#7da05a"/><stop offset="60%" stop-color="#5a7c3e"/><stop offset="100%" stop-color="#3d5c28"/></radialGradient>
+        <radialGradient id="s_lf2" cx="40%" cy="25%" r="60%"><stop offset="0%" stop-color="#8db568"/><stop offset="55%" stop-color="#6a9448"/><stop offset="100%" stop-color="#4a6e30"/></radialGradient>
+        <radialGradient id="s_fl" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f5e6c0"/><stop offset="100%" stop-color="#d4b870"/></radialGradient>
+        <radialGradient id="s_br" cx="40%" cy="35%" r="60%"><stop offset="0%" stop-color="#c4504a"/><stop offset="100%" stop-color="#8a2a28"/></radialGradient>
+      </defs>
+      <path d="M0,200 C8,162 -2,130 22,100 C46,70 28,44 58,18 C72,6 90,0 105,0" fill="none" stroke="#4a6030" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M0,178 C12,152 26,136 18,112 C10,88 32,68 24,44 C16,22 40,6 48,0" fill="none" stroke="#5a7040" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30,118 C46,110 54,124 48,138" fill="none" stroke="#6a8448" stroke-width="1.4" stroke-linecap="round"/>
+      <g transform="translate(36,106) rotate(-28)"><path d="M0,0 C-8,-17 -20,-30 -14,-44 C-8,-57 4,-54 10,-41 C17,-27 11,-12 0,0Z" fill="url(#s_lf1)"/><path d="M0,0 C-2,-14 -4,-29 -5,-42" fill="none" stroke="#3d5228" stroke-width="0.8" opacity="0.7"/><path d="M-2,-13 C-8,-18 -14,-18 -17,-15" fill="none" stroke="#3d5228" stroke-width="0.5" opacity="0.5"/><path d="M-3,-24 C-9,-29 -15,-28 -15,-24" fill="none" stroke="#3d5228" stroke-width="0.5" opacity="0.45"/></g>
+      <g transform="translate(52,65) rotate(40)"><path d="M0,0 C6,-12 16,-21 12,-33 C8,-44 -3,-42 -8,-31 C-15,-19 -8,-9 0,0Z" fill="url(#s_lf2)"/><path d="M0,0 C2,-12 3,-22 3,-31" fill="none" stroke="#3d5228" stroke-width="0.7" opacity="0.65"/></g>
+      <g transform="translate(75,30) rotate(-15)"><path d="M0,0 C-6,-13 -15,-23 -11,-34 C-7,-44 2,-42 6,-32 C12,-19 6,-8 0,0Z" fill="url(#s_lf1)"/><path d="M0,0 C-1,-11 -3,-22 -3,-32" fill="none" stroke="#3d5228" stroke-width="0.7" opacity="0.6"/></g>
+      <g transform="translate(22,152) scale(0.78)"><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(60)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(120)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(240)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(300)"/><circle cx="0" cy="0" r="4" fill="url(#s_fl)"/><circle cx="0" cy="0" r="1.8" fill="#c8962a"/></g>
+      <line x1="20" y1="84" x2="16" y2="92" stroke="#4a6030" stroke-width="0.9"/><line x1="20" y1="84" x2="28" y2="93" stroke="#4a6030" stroke-width="0.9"/><line x1="20" y1="84" x2="10" y2="94" stroke="#4a6030" stroke-width="0.9"/>
+      <circle cx="16" cy="92" r="4.2" fill="url(#s_br)"/><circle cx="16" cy="92" r="1.3" fill="rgba(255,255,255,0.3)"/>
+      <circle cx="28" cy="93" r="3.2" fill="#a03830"/><circle cx="10" cy="94" r="3.5" fill="url(#s_br)"/>
+    </svg>
+    <!-- corner vine TR -->
+    <svg class="bot-corner bot-tr" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="sr_lf1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#7da05a"/><stop offset="60%" stop-color="#5a7c3e"/><stop offset="100%" stop-color="#3d5c28"/></radialGradient>
+        <radialGradient id="sr_lf2" cx="40%" cy="25%" r="60%"><stop offset="0%" stop-color="#8db568"/><stop offset="55%" stop-color="#6a9448"/><stop offset="100%" stop-color="#4a6e30"/></radialGradient>
+        <radialGradient id="sr_fl" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f5e6c0"/><stop offset="100%" stop-color="#d4b870"/></radialGradient>
+        <radialGradient id="sr_br" cx="40%" cy="35%" r="60%"><stop offset="0%" stop-color="#c4504a"/><stop offset="100%" stop-color="#8a2a28"/></radialGradient>
+      </defs>
+      <path d="M200,200 C192,162 202,130 178,100 C154,70 172,44 142,18 C128,6 110,0 95,0" fill="none" stroke="#4a6030" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M200,178 C188,152 174,136 182,112 C190,88 168,68 176,44 C184,22 160,6 152,0" fill="none" stroke="#5a7040" stroke-width="2" stroke-linecap="round"/>
+      <g transform="translate(164,106) rotate(28)"><path d="M0,0 C8,-17 20,-30 14,-44 C8,-57 -4,-54 -10,-41 C-17,-27 -11,-12 0,0Z" fill="url(#sr_lf1)"/><path d="M0,0 C2,-14 4,-29 5,-42" fill="none" stroke="#3d5228" stroke-width="0.8" opacity="0.7"/><path d="M2,-13 C8,-18 14,-18 17,-15" fill="none" stroke="#3d5228" stroke-width="0.5" opacity="0.5"/></g>
+      <g transform="translate(148,65) rotate(-40)"><path d="M0,0 C-6,-12 -16,-21 -12,-33 C-8,-44 3,-42 8,-31 C15,-19 8,-9 0,0Z" fill="url(#sr_lf2)"/><path d="M0,0 C-2,-12 -3,-22 -3,-31" fill="none" stroke="#3d5228" stroke-width="0.7" opacity="0.65"/></g>
+      <g transform="translate(125,30) rotate(15)"><path d="M0,0 C6,-13 15,-23 11,-34 C7,-44 -2,-42 -6,-32 C-12,-19 -6,-8 0,0Z" fill="url(#sr_lf1)"/><path d="M0,0 C1,-11 3,-22 3,-32" fill="none" stroke="#3d5228" stroke-width="0.7" opacity="0.6"/></g>
+      <g transform="translate(178,152) scale(0.78)"><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(60)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(120)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(240)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(300)"/><circle cx="0" cy="0" r="4" fill="url(#sr_fl)"/><circle cx="0" cy="0" r="1.8" fill="#c8962a"/></g>
+      <line x1="180" y1="84" x2="184" y2="92" stroke="#4a6030" stroke-width="0.9"/><line x1="180" y1="84" x2="172" y2="93" stroke="#4a6030" stroke-width="0.9"/><line x1="180" y1="84" x2="190" y2="94" stroke="#4a6030" stroke-width="0.9"/>
+      <circle cx="184" cy="92" r="4.2" fill="url(#sr_br)"/><circle cx="184" cy="92" r="1.3" fill="rgba(255,255,255,0.3)"/>
+      <circle cx="172" cy="93" r="3.2" fill="#a03830"/><circle cx="190" cy="94" r="3.5" fill="url(#sr_br)"/>
+    </svg>
+
     <div class="section-inner">
       <p class="section-label">Find our work</p>
       <h2 class="section-title">Shop Our Creations</h2>
@@ -85,19 +200,32 @@
           <p>Follow along on Facebook for updates, blog posts, and life on the homestead</p>
           <span class="shop-card-cta">Follow Along →</span>
         </a>
-        <a href="YOUR_PRINTFUL_LINK" target="_blank" rel="noopener" class="shop-card">
-          <div class="shop-card-icon">🖨️</div>
-          <h3>Prints & Merch</h3>
-          <p>Shop our designs on apparel, wall art, and more — printed on demand and shipped straight to your door</p>
-          <span class="shop-card-cta">Shop Prints →</span>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-
+  <!-- ===================== ABOUT ===================== -->
   <section class="about" id="about">
+    <!-- side vine right -->
+    <svg class="bot-side bot-side-r" viewBox="0 0 110 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="a_lf1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#7da05a"/><stop offset="60%" stop-color="#5a7c3e"/><stop offset="100%" stop-color="#3d5c28"/></radialGradient>
+        <radialGradient id="a_lf2" cx="40%" cy="25%" r="60%"><stop offset="0%" stop-color="#9abf70"/><stop offset="60%" stop-color="#729952"/><stop offset="100%" stop-color="#4e6e35"/></radialGradient>
+        <radialGradient id="a_fl" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f5e6c0"/><stop offset="100%" stop-color="#d4b870"/></radialGradient>
+        <radialGradient id="a_br" cx="40%" cy="35%" r="60%"><stop offset="0%" stop-color="#7a4a8a"/><stop offset="100%" stop-color="#4a2060"/></radialGradient>
+      </defs>
+      <path d="M110,0 C96,42 108,84 84,126 C60,168 78,210 56,252 C36,292 52,334 30,376 C16,402 2,416 0,420" fill="none" stroke="#4a6030" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M110,28 C100,68 112,108 90,148 C68,188 84,228 64,268 C46,306 60,346 40,386 C30,406 14,418 6,420" fill="none" stroke="#5a7040" stroke-width="1.8" stroke-linecap="round"/>
+      <g transform="translate(70,115) rotate(26)"><path d="M0,0 C7,-15 19,-27 14,-41 C9,-53 -3,-51 -9,-39 C-16,-25 -9,-11 0,0Z" fill="url(#a_lf1)"/><path d="M0,0 C2,-14 3,-26 3,-39" fill="none" stroke="#3d5228" stroke-width="0.8" opacity="0.65"/><path d="M2,-12 C7,-17 12,-16 13,-12" fill="none" stroke="#3d5228" stroke-width="0.5" opacity="0.45"/></g>
+      <g transform="translate(50,200) rotate(-28)"><path d="M0,0 C-6,-14 -17,-24 -13,-37 C-9,-49 2,-47 7,-36 C14,-23 7,-10 0,0Z" fill="url(#a_lf2)"/><path d="M0,0 C-2,-12 -3,-24 -3,-35" fill="none" stroke="#3d5228" stroke-width="0.7" opacity="0.6"/></g>
+      <g transform="translate(36,286) rotate(16)"><path d="M0,0 C5,-12 15,-21 11,-32 C7,-42 -2,-40 -5,-30 C-10,-19 -5,-8 0,0Z" fill="url(#a_lf1)"/><path d="M0,0 C1,-11 2,-21 2,-30" fill="none" stroke="#3d5228" stroke-width="0.7" opacity="0.6"/></g>
+      <g transform="translate(22,362) rotate(-20)"><path d="M0,0 C-4,-11 -12,-19 -9,-29 C-6,-37 1,-36 4,-26 C8,-15 4,-7 0,0Z" fill="url(#a_lf2)"/><path d="M0,0 C0,-9 0,-18 0,-26" fill="none" stroke="#3d5228" stroke-width="0.6" opacity="0.55"/></g>
+      <g transform="translate(90,50) scale(0.7)"><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(60)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(120)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(180)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(240)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(300)"/><circle cx="0" cy="0" r="4" fill="url(#a_fl)"/><circle cx="0" cy="0" r="1.8" fill="#c8962a"/></g>
+      <line x1="58" y1="234" x2="54" y2="242" stroke="#4a6030" stroke-width="0.85"/><line x1="58" y1="234" x2="66" y2="243" stroke="#4a6030" stroke-width="0.85"/><line x1="58" y1="234" x2="50" y2="244" stroke="#4a6030" stroke-width="0.85"/>
+      <circle cx="54" cy="242" r="4" fill="url(#a_br)"/><circle cx="54" cy="242" r="1.2" fill="rgba(255,255,255,0.28)"/>
+      <circle cx="66" cy="243" r="3" fill="#5a2870"/><circle cx="50" cy="244" r="3.5" fill="url(#a_br)"/>
+    </svg>
+
     <div class="section-inner about-inner">
       <div class="about-image-placeholder">
         <img src="images/img1.JPG" alt="Our dogs enjoying the outdoors" loading="lazy">
@@ -112,32 +240,49 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
-
+  <!-- ===================== GALLERY ===================== -->
   <section class="gallery" id="gallery">
+    <!-- bottom-left corner vine -->
+    <svg class="bot-corner bot-bl" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="g_lf1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#7da05a"/><stop offset="60%" stop-color="#5a7c3e"/><stop offset="100%" stop-color="#3d5c28"/></radialGradient>
+        <radialGradient id="g_lf2" cx="40%" cy="25%" r="60%"><stop offset="0%" stop-color="#8db568"/><stop offset="55%" stop-color="#6a9448"/><stop offset="100%" stop-color="#4a6e30"/></radialGradient>
+        <radialGradient id="g_fl" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f5e6c0"/><stop offset="100%" stop-color="#d4b870"/></radialGradient>
+        <radialGradient id="g_br" cx="40%" cy="35%" r="60%"><stop offset="0%" stop-color="#c4504a"/><stop offset="100%" stop-color="#8a2a28"/></radialGradient>
+      </defs>
+      <path d="M0,0 C10,34 0,64 24,90 C48,116 30,146 58,168 C72,178 90,180 108,180" fill="none" stroke="#4a6030" stroke-width="3" stroke-linecap="round"/>
+      <path d="M0,20 C14,46 26,60 18,86 C10,110 30,130 20,156 C12,174 34,180 48,180" fill="none" stroke="#5a7040" stroke-width="1.8" stroke-linecap="round"/>
+      <g transform="translate(32,80) rotate(28)"><path d="M0,0 C6,-14 17,-24 13,-37 C9,-48 -2,-46 -8,-35 C-14,-21 -8,-9 0,0Z" fill="url(#g_lf1)"/><path d="M0,0 C2,-12 3,-24 3,-35" fill="none" stroke="#3d5228" stroke-width="0.8" opacity="0.65"/></g>
+      <g transform="translate(50,130) rotate(-18)"><path d="M0,0 C-5,-13 -15,-22 -11,-33 C-7,-43 2,-41 5,-31 C10,-20 5,-9 0,0Z" fill="url(#g_lf2)"/><path d="M0,0 C-1,-12 -2,-22 -2,-31" fill="none" stroke="#3d5228" stroke-width="0.7" opacity="0.6"/></g>
+      <g transform="translate(16,36) scale(0.74)"><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(72)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(144)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f0d898" opacity="0.9" transform="rotate(216)"/><ellipse cx="0" cy="-9" rx="3.5" ry="6" fill="#f5e6c0" opacity="0.9" transform="rotate(288)"/><circle cx="0" cy="0" r="4" fill="url(#g_fl)"/><circle cx="0" cy="0" r="1.8" fill="#c8962a"/></g>
+      <line x1="13" y1="108" x2="10" y2="116" stroke="#4a6030" stroke-width="0.85"/><line x1="13" y1="108" x2="21" y2="117" stroke="#4a6030" stroke-width="0.85"/><line x1="13" y1="108" x2="6" y2="118" stroke="#4a6030" stroke-width="0.85"/>
+      <circle cx="10" cy="116" r="4" fill="url(#g_br)"/><circle cx="10" cy="116" r="1.2" fill="rgba(255,255,255,0.28)"/>
+      <circle cx="21" cy="117" r="3" fill="#a03830"/><circle cx="6" cy="118" r="3.4" fill="url(#g_br)"/>
+    </svg>
+
     <div class="section-inner">
       <p class="section-label">Our work</p>
       <h2 class="section-title">Gallery</h2>
       <p class="section-sub">A glimpse into what we make and how we live.</p>
-      <div class="gallery-grid">
-        <div class="gallery-item tall">
-          <img src="images/img1.JPG" alt="Our dogs enjoying the outdoors" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="images/img2.JPG" alt="Hosta plant growing in the homestead garden" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="images/img3.JPG" alt="Original painting — floral ribcage with roses, sunflowers and a raven" loading="lazy">
-        </div>
-        <div class="gallery-item wide">
-          <img src="images/img4.JPG" alt="Handmade multicolor crochet slouch hat" loading="lazy">
-        </div>
+      <div class="masonry-gallery" id="galleryGrid"></div>
+      <div class="gallery-empty" id="galleryEmpty" style="display:none;">
+        <p>No gallery images yet. <a href="admin.html">Add some from the admin panel.</a></p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">‹</button>
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next">›</button>
+    <div class="lightbox-inner">
+      <img id="lightboxImg" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
 
+  <!-- ===================== CONTACT ===================== -->
   <section class="contact" id="contact">
     <div class="section-inner contact-inner">
       <p class="section-label">Get in touch</p>
@@ -153,36 +298,78 @@
   </section>
 
   <!-- FOOTER -->
-
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-logo">
-        <span>✦</span> The Dunigan Patch
-      </div>
+      <div class="footer-logo"><span>✦</span> The Dunigan Patch</div>
       <p>Handmade. Homegrown. Heartfelt.</p>
       <p class="footer-copy">© 2026 The Dunigan Patch. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Mobile nav toggle
+    // Mobile nav
     const toggle = document.querySelector('.nav-toggle');
     const mobileNav = document.getElementById('mobileNav');
-    toggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-    function closeMobileNav() {
-      mobileNav.classList.remove('open');
-    }
+    toggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    function closeMobileNav() { mobileNav.classList.remove('open'); }
 
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('section').forEach(s => observer.observe(s));
-  </script>
 
+    // Default images (shown before any admin uploads)
+    const DEFAULT_IMAGES = [
+      { src: 'images/img1.JPG', caption: 'Our dogs enjoying the outdoors' },
+      { src: 'images/img2.JPG', caption: 'Hosta plant growing in the homestead garden' },
+      { src: 'images/img3.JPG', caption: 'Original painting — floral ribcage with roses, sunflowers and a raven' },
+      { src: 'images/img4.JPG', caption: 'Handmade multicolor crochet slouch hat' },
+    ];
+
+    // Gallery
+    function loadGallery() {
+      const grid = document.getElementById('galleryGrid');
+      const empty = document.getElementById('galleryEmpty');
+      const stored = localStorage.getItem('dunigan_gallery');
+      const images = stored ? JSON.parse(stored) : DEFAULT_IMAGES;
+      grid.innerHTML = '';
+      if (!images.length) { empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      images.forEach((img, i) => {
+        const item = document.createElement('div');
+        item.className = 'masonry-item';
+        item.innerHTML = `<img src="${img.src}" alt="${img.caption || ''}" loading="lazy">`;
+        item.addEventListener('click', () => openLightbox(images, i));
+        grid.appendChild(item);
+      });
+    }
+
+    // Lightbox
+    let lbImages = [], lbIndex = 0;
+    function openLightbox(images, index) {
+      lbImages = images; lbIndex = index;
+      showLightboxImage();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function showLightboxImage() {
+      document.getElementById('lightboxImg').src = lbImages[lbIndex].src;
+      document.getElementById('lightboxCaption').textContent = lbImages[lbIndex].caption || '';
+    }
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', () => { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLightboxImage(); });
+    document.getElementById('lightboxNext').addEventListener('click', () => { lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); });
+    document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLightboxImage(); }
+      if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); }
+    });
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+
+    loadGallery();
+  </script>
 </body>
 </html>
