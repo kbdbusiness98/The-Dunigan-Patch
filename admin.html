@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Admin — The Dunigan Patch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f3ec; --parchment: #ede8de; --sage: #6b7c5c; --sage-dark: #4e5c42;
+      --sage-light: #dde5d4; --brown: #7a5c3a; --text: #2e2a24; --text-muted: #7a7168;
+      --white: #ffffff; --red: #b84c4c;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Jost', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--cream); color: var(--text); min-height: 100vh; }
+
+    /* ── LOGIN ── */
+    #loginScreen {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: var(--sage-light); padding: 24px;
+    }
+    .login-box {
+      background: var(--white); border-radius: 12px; padding: 52px 44px;
+      max-width: 400px; width: 100%; box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .login-logo { font-size: 2rem; color: var(--sage); margin-bottom: 6px; }
+    .login-box h1 { font-family: var(--font-serif); font-size: 1.7rem; margin-bottom: 4px; }
+    .login-box .sub { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 32px; }
+    .login-box input[type="password"] {
+      width: 100%; padding: 13px 16px; border: 2px solid var(--parchment);
+      border-radius: 4px; font-family: var(--font-sans); font-size: 1rem;
+      background: var(--cream); color: var(--text); margin-bottom: 14px;
+      transition: border-color 0.2s; outline: none;
+    }
+    .login-box input[type="password"]:focus { border-color: var(--sage); }
+    .login-error { color: var(--red); font-size: 0.85rem; margin-bottom: 12px; display: none; }
+    .btn-login {
+      width: 100%; padding: 14px; background: var(--sage); color: var(--white);
+      border: none; border-radius: 4px; font-family: var(--font-sans);
+      font-size: 0.9rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-login:hover { background: var(--sage-dark); }
+    .back-link { display: block; margin-top: 20px; font-size: 0.82rem; color: var(--text-muted); }
+    .back-link:hover { color: var(--sage); }
+
+    /* ── ADMIN UI ── */
+    #adminScreen { display: none; min-height: 100vh; }
+    .admin-header {
+      background: var(--sage-dark); color: var(--white); padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .admin-header-logo { font-family: var(--font-serif); font-size: 1.2rem; }
+    .admin-header-logo span { opacity: 0.65; font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; margin-left: 10px; }
+    .btn-logout { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 8px 18px; border-radius: 4px; font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+    .btn-logout:hover { background: rgba(255,255,255,0.25); }
+
+    .admin-body { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .admin-section { margin-bottom: 48px; }
+    .admin-section h2 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 6px; }
+    .admin-section .hint { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+
+    /* Upload zone */
+    .upload-zone {
+      border: 2px dashed rgba(107,124,92,0.4); border-radius: 8px;
+      padding: 48px 24px; text-align: center; cursor: pointer;
+      background: var(--parchment); transition: all 0.2s;
+    }
+    .upload-zone:hover, .upload-zone.drag-over { border-color: var(--sage); background: var(--sage-light); }
+    .upload-zone .icon { font-size: 2.5rem; margin-bottom: 10px; }
+    .upload-zone p { color: var(--text-muted); font-size: 0.9rem; }
+    .upload-zone strong { color: var(--sage); }
+    #fileInput { display: none; }
+
+    /* URL add */
+    .url-row { display: flex; gap: 10px; margin-bottom: 10px; }
+    .url-row input {
+      flex: 1; padding: 11px 14px; border: 2px solid var(--parchment);
+      border-radius: 4px; font-family: var(--font-sans); font-size: 0.9rem;
+      background: var(--cream); color: var(--text); outline: none; transition: border-color 0.2s;
+    }
+    .url-row input:focus { border-color: var(--sage); }
+    .url-row input.caption-input { max-width: 240px; }
+    .btn-add {
+      padding: 11px 22px; background: var(--sage); color: var(--white);
+      border: none; border-radius: 4px; font-family: var(--font-sans);
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.2s;
+    }
+    .btn-add:hover { background: var(--sage-dark); }
+
+    /* Gallery grid */
+    .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-top: 8px; }
+    .admin-thumb {
+      position: relative; border-radius: 6px; overflow: hidden;
+      background: var(--parchment); aspect-ratio: 1;
+      border: 2px solid transparent; transition: border-color 0.2s;
+    }
+    .admin-thumb:hover { border-color: var(--sage); }
+    .admin-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.9);
+      font-size: 0.7rem; padding: 5px 8px; line-height: 1.3;
+    }
+    .thumb-delete {
+      position: absolute; top: 6px; right: 6px;
+      background: rgba(184,76,76,0.9); border: none; color: var(--white);
+      width: 26px; height: 26px; border-radius: 50%; font-size: 0.9rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.15s;
+    }
+    .admin-thumb:hover .thumb-delete { opacity: 1; }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+      background: var(--sage-dark); color: var(--white); padding: 12px 28px;
+      border-radius: 6px; font-size: 0.88rem; letter-spacing: 0.04em;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999;
+    }
+    .toast.show { opacity: 1; }
+
+    /* Progress bar */
+    .upload-progress { margin-top: 12px; display: none; }
+    .upload-progress .bar-track { background: var(--parchment); border-radius: 4px; height: 6px; overflow: hidden; }
+    .upload-progress .bar-fill { height: 100%; background: var(--sage); width: 0%; transition: width 0.2s; border-radius: 4px; }
+    .upload-progress .bar-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+
+    .empty-state { text-align: center; color: var(--text-muted); padding: 32px 0; font-size: 0.9rem; }
+
+    @media (max-width: 600px) {
+      .url-row { flex-wrap: wrap; }
+      .url-row input.caption-input { max-width: 100%; }
+      .admin-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <div class="login-logo">✦</div>
+      <h1>The Dunigan Patch</h1>
+      <p class="sub">Gallery Admin</p>
+      <p class="login-error" id="loginError">Incorrect password. Try again.</p>
+      <input type="password" id="passwordInput" placeholder="Enter password" autocomplete="current-password">
+      <button class="btn-login" onclick="tryLogin()">Sign In</button>
+      <a href="index.html" class="back-link">← Back to website</a>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div id="adminScreen">
+    <div class="admin-header">
+      <div class="admin-header-logo">✦ The Dunigan Patch <span>Gallery Admin</span></div>
+      <button class="btn-logout" onclick="logout()">Sign Out</button>
+    </div>
+
+    <div class="admin-body">
+
+      <!-- Upload photos -->
+      <div class="admin-section">
+        <h2>Upload Photos</h2>
+        <p class="hint">Drag and drop images onto the zone below, or click to browse your files. JPG, PNG, WEBP supported.</p>
+        <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+          <div class="icon">🌿</div>
+          <p><strong>Click to browse</strong> or drag photos here</p>
+          <p style="margin-top:6px; font-size:0.78rem;">Photos are stored in your browser — they'll show on this device's gallery.</p>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" multiple>
+        <div class="upload-progress" id="uploadProgress">
+          <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
+          <div class="bar-label" id="barLabel">Uploading…</div>
+        </div>
+      </div>
+
+      <!-- Add by URL -->
+      <div class="admin-section">
+        <h2>Add by URL</h2>
+        <p class="hint">Paste a direct image link (from Google Drive, Dropbox, or anywhere) and an optional caption.</p>
+        <div class="url-row">
+          <input type="url" id="urlInput" placeholder="https://example.com/photo.jpg">
+          <input type="text" id="captionInput" class="caption-input" placeholder="Caption (optional)">
+          <button class="btn-add" onclick="addByUrl()">Add</button>
+        </div>
+      </div>
+
+      <!-- Current gallery -->
+      <div class="admin-section">
+        <h2>Current Gallery</h2>
+        <p class="hint">Hover over a photo and click the ✕ to remove it. Changes save automatically.</p>
+        <div class="admin-grid" id="adminGrid"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ── Password (change this to whatever you want!) ──────────
+    const ADMIN_PASSWORD = 'dunigan2026';
+
+    // ── Default images ────────────────────────────────────────
+    const DEFAULT_IMAGES = [
+      { src: 'images/img1.JPG', caption: 'Our dogs enjoying the outdoors' },
+      { src: 'images/img2.JPG', caption: 'Hosta plant growing in the homestead garden' },
+      { src: 'images/img3.JPG', caption: 'Original painting — floral ribcage with roses, sunflowers and a raven' },
+      { src: 'images/img4.JPG', caption: 'Handmade multicolor crochet slouch hat' },
+    ];
+
+    // ── Auth ──────────────────────────────────────────────────
+    function tryLogin() {
+      const pw = document.getElementById('passwordInput').value;
+      if (pw === ADMIN_PASSWORD) {
+        sessionStorage.setItem('dp_admin', '1');
+        showAdmin();
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+        document.getElementById('passwordInput').value = '';
+        document.getElementById('passwordInput').focus();
+      }
+    }
+    document.getElementById('passwordInput').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+
+    function logout() {
+      sessionStorage.removeItem('dp_admin');
+      location.reload();
+    }
+
+    function showAdmin() {
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('adminScreen').style.display = 'block';
+      renderGrid();
+    }
+
+    if (sessionStorage.getItem('dp_admin') === '1') showAdmin();
+
+    // ── Storage helpers ───────────────────────────────────────
+    function getImages() {
+      const stored = localStorage.getItem('dunigan_gallery');
+      return stored ? JSON.parse(stored) : [...DEFAULT_IMAGES];
+    }
+    function saveImages(images) {
+      localStorage.setItem('dunigan_gallery', JSON.stringify(images));
+    }
+
+    // ── Render admin grid ─────────────────────────────────────
+    function renderGrid() {
+      const grid = document.getElementById('adminGrid');
+      const images = getImages();
+      if (!images.length) {
+        grid.innerHTML = '<p class="empty-state">No images yet. Upload some above!</p>';
+        return;
+      }
+      grid.innerHTML = images.map((img, i) => `
+        <div class="admin-thumb">
+          <img src="${img.src}" alt="${img.caption || ''}">
+          ${img.caption ? `<div class="thumb-caption">${img.caption}</div>` : ''}
+          <button class="thumb-delete" onclick="deleteImage(${i})" title="Remove">✕</button>
+        </div>
+      `).join('');
+    }
+
+    // ── Delete ────────────────────────────────────────────────
+    function deleteImage(index) {
+      const images = getImages();
+      images.splice(index, 1);
+      saveImages(images);
+      renderGrid();
+      showToast('Photo removed from gallery.');
+    }
+
+    // ── Add by URL ────────────────────────────────────────────
+    function addByUrl() {
+      const url = document.getElementById('urlInput').value.trim();
+      const caption = document.getElementById('captionInput').value.trim();
+      if (!url) { showToast('Please enter an image URL.'); return; }
+      const images = getImages();
+      images.push({ src: url, caption });
+      saveImages(images);
+      document.getElementById('urlInput').value = '';
+      document.getElementById('captionInput').value = '';
+      renderGrid();
+      showToast('Photo added to gallery!');
+    }
+
+    // ── File upload (base64) ──────────────────────────────────
+    document.getElementById('fileInput').addEventListener('change', function() {
+      handleFiles(this.files);
+      this.value = '';
+    });
+
+    // Drag and drop
+    const zone = document.getElementById('uploadZone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', e => {
+      e.preventDefault();
+      zone.classList.remove('drag-over');
+      handleFiles(e.dataTransfer.files);
+    });
+
+    function handleFiles(files) {
+      const validFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
+      if (!validFiles.length) { showToast('Please select image files only.'); return; }
+
+      const progress = document.getElementById('uploadProgress');
+      const barFill = document.getElementById('barFill');
+      const barLabel = document.getElementById('barLabel');
+      progress.style.display = 'block';
+
+      let done = 0;
+      const total = validFiles.length;
+      const images = getImages();
+
+      validFiles.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          images.push({ src: e.target.result, caption: file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ') });
+          done++;
+          const pct = Math.round((done / total) * 100);
+          barFill.style.width = pct + '%';
+          barLabel.textContent = `Uploading… ${done} of ${total}`;
+          if (done === total) {
+            saveImages(images);
+            renderGrid();
+            showToast(`${total} photo${total > 1 ? 's' : ''} added to gallery!`);
+            setTimeout(() => {
+              progress.style.display = 'none';
+              barFill.style.width = '0%';
+            }, 1200);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // ── Toast ─────────────────────────────────────────────────
+    let toastTimer;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+    }
+  </script>
+</body>
+</html>
