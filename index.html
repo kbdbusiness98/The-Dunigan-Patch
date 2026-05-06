@@ -264,23 +264,23 @@
       <p class="section-label">Our work</p>
       <h2 class="section-title">Gallery</h2>
       <p class="section-sub">A glimpse into what we make and how we live.</p>
-      <div class="masonry-gallery" id="galleryGrid"></div>
+
+      <!-- SLIDESHOW -->
+      <div class="slideshow-wrap" id="slideshowWrap">
+        <div class="slideshow-stage" id="slideshowStage">
+          <!-- slides injected by JS -->
+        </div>
+        <div class="slideshow-dots" id="slideshowDots"></div>
+        <div class="slideshow-controls">
+          <button class="slide-btn slide-prev" id="slidePrev" aria-label="Previous">‹</button>
+          <button class="slide-btn slide-next" id="slideNext" aria-label="Next">›</button>
+        </div>
+      </div>
       <div class="gallery-empty" id="galleryEmpty" style="display:none;">
         <p>No gallery images yet. <a href="admin.html">Add some from the admin panel.</a></p>
       </div>
     </div>
   </section>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
-    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">‹</button>
-    <button class="lightbox-next" id="lightboxNext" aria-label="Next">›</button>
-    <div class="lightbox-inner">
-      <img id="lightboxImg" src="" alt="">
-      <p class="lightbox-caption" id="lightboxCaption"></p>
-    </div>
-  </div>
 
   <!-- ===================== CONTACT ===================== -->
   <section class="contact" id="contact">
@@ -319,57 +319,95 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-    // Default images (shown before any admin uploads)
+    // ── Defaults ───────────────────────────────────────────
     const DEFAULT_IMAGES = [
       { src: 'images/img1.JPG', caption: 'Our dogs enjoying the outdoors' },
       { src: 'images/img2.JPG', caption: 'Hosta plant growing in the homestead garden' },
       { src: 'images/img3.JPG', caption: 'Original painting — floral ribcage with roses, sunflowers and a raven' },
       { src: 'images/img4.JPG', caption: 'Handmade multicolor crochet slouch hat' },
     ];
+    const SLIDES_TO_SHOW = 5;
 
-    // Gallery
-    function loadGallery() {
-      const grid = document.getElementById('galleryGrid');
-      const empty = document.getElementById('galleryEmpty');
+    // ── Slideshow state ────────────────────────────────────
+    let slideImages = [];  // the random 5 picked for this session
+    let slideIndex = 0;
+    let slideTimer = null;
+
+    function getPool() {
       const stored = localStorage.getItem('dunigan_gallery');
-      const images = stored ? JSON.parse(stored) : DEFAULT_IMAGES;
-      grid.innerHTML = '';
-      if (!images.length) { empty.style.display = 'block'; return; }
+      return stored ? JSON.parse(stored) : DEFAULT_IMAGES;
+    }
+    function getSpeed() {
+      return parseInt(localStorage.getItem('dunigan_slide_speed') || '4000', 10);
+    }
+
+    function pickRandom(pool, n) {
+      const shuffled = [...pool].sort(() => Math.random() - 0.5);
+      return shuffled.slice(0, Math.min(n, shuffled.length));
+    }
+
+    function buildSlides() {
+      const pool = getPool();
+      const empty = document.getElementById('galleryEmpty');
+      const wrap = document.getElementById('slideshowWrap');
+      if (!pool.length) {
+        empty.style.display = 'block';
+        wrap.style.display = 'none';
+        return;
+      }
       empty.style.display = 'none';
-      images.forEach((img, i) => {
-        const item = document.createElement('div');
-        item.className = 'masonry-item';
-        item.innerHTML = `<img src="${img.src}" alt="${img.caption || ''}" loading="lazy">`;
-        item.addEventListener('click', () => openLightbox(images, i));
-        grid.appendChild(item);
+      wrap.style.display = 'block';
+      slideImages = pickRandom(pool, SLIDES_TO_SHOW);
+      slideIndex = 0;
+      renderSlides();
+      startTimer();
+    }
+
+    function renderSlides() {
+      const stage = document.getElementById('slideshowStage');
+      const dots = document.getElementById('slideshowDots');
+      stage.innerHTML = slideImages.map((img, i) => `
+        <div class="slide ${i === 0 ? 'active' : ''}" data-index="${i}">
+          <img src="${img.src}" alt="${img.caption || ''}">
+          ${img.caption ? `<div class="slide-caption">${img.caption}</div>` : ''}
+        </div>
+      `).join('');
+      dots.innerHTML = slideImages.map((_, i) =>
+        `<button class="slide-dot ${i === 0 ? 'active' : ''}" data-i="${i}" aria-label="Go to slide ${i+1}"></button>`
+      ).join('');
+      dots.querySelectorAll('.slide-dot').forEach(d => {
+        d.addEventListener('click', () => goToSlide(parseInt(d.dataset.i)));
       });
     }
 
-    // Lightbox
-    let lbImages = [], lbIndex = 0;
-    function openLightbox(images, index) {
-      lbImages = images; lbIndex = index;
-      showLightboxImage();
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
+    function goToSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.slide-dot');
+      slides[slideIndex].classList.remove('active');
+      dots[slideIndex].classList.remove('active');
+      slideIndex = (n + slideImages.length) % slideImages.length;
+      slides[slideIndex].classList.add('active');
+      dots[slideIndex].classList.add('active');
+      resetTimer();
     }
-    function showLightboxImage() {
-      document.getElementById('lightboxImg').src = lbImages[lbIndex].src;
-      document.getElementById('lightboxCaption').textContent = lbImages[lbIndex].caption || '';
-    }
-    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-    document.getElementById('lightboxPrev').addEventListener('click', () => { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLightboxImage(); });
-    document.getElementById('lightboxNext').addEventListener('click', () => { lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); });
-    document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
-    document.addEventListener('keydown', e => {
-      if (!document.getElementById('lightbox').classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLightboxImage(); }
-      if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); }
-    });
-    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
 
-    loadGallery();
+    function startTimer() {
+      clearInterval(slideTimer);
+      slideTimer = setInterval(() => goToSlide(slideIndex + 1), getSpeed());
+    }
+    function resetTimer() {
+      clearInterval(slideTimer);
+      slideTimer = setInterval(() => goToSlide(slideIndex + 1), getSpeed());
+    }
+
+    document.getElementById('slidePrev').addEventListener('click', () => goToSlide(slideIndex - 1));
+    document.getElementById('slideNext').addEventListener('click', () => goToSlide(slideIndex + 1));
+
+    // Pause on hover
+    document.getElementById('slideshowStage').addEventListener('mouseenter', () => clearInterval(slideTimer));
+    document.getElementById('slideshowStage').addEventListener('mouseleave', () => startTimer());
+
+    buildSlides();
   </script>
 </body>
 </html>
